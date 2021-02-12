@@ -1,14 +1,18 @@
 import {useState} from 'react'
 import {InputGroup, Form, Badge} from 'bootstrap-4-react'
 
-const EntireDateOne = () => {
-    const [dataNumber, setNumberInput] = useState(null);
-    const [dataExp, setExpInput] = useState(null);
+const EntireDateTwo = () => {
+    const [dataNumber, setNumberInput] = useState(0);
+    const [dataExp, setExpInput] = useState(0);
 
     function getUserExp(dataNumber, dataExp) {
-        return Math.pow(dataNumber, dataExp);
+
+        let start = 1;
+        for (let i = 1; i <= Math.abs(dataExp); i++){
+            start *= dataNumber;
+        }
+        return 1/start || "";
     }
-    
     
     return (
         <>
@@ -37,4 +41,4 @@ const EntireDateOne = () => {
     );
 }
 
-export default EntireDateOne
+export default EntireDateTwo

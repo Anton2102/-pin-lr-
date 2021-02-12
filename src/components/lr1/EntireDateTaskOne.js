@@ -2,13 +2,17 @@ import {useState} from 'react'
 import {InputGroup, Form, Badge} from 'bootstrap-4-react'
 
 const EntireDateOne = () => {
-    const [dataNumber, setNumberInput] = useState(null);
-    const [dataExp, setExpInput] = useState(null);
+    const [dataNumber, setNumberInput] = useState(0);
+    const [dataExp, setExpInput] = useState(0);
 
     function getUserExp(dataNumber, dataExp) {
-        return Math.pow(dataNumber, dataExp);
+
+        let start = 1;
+        for (let i = 1; i <= dataExp; i++){
+            start *= dataNumber;
+        }
+        return start || "";
     }
-    
     
     return (
         <>
@@ -31,7 +35,7 @@ const EntireDateOne = () => {
                 />
             </InputGroup>
             <h2 className="text-center">
-                <Badge pill dark style={{marginTop: '10px'}}>{getUserExp(+dataNumber, +dataExp)}</Badge>
+                <Badge pill dark style={{marginTop: '10px'}}>{getUserExp(+dataNumber, +dataExp) | ""}</Badge>
             </h2>
         </>
     );
