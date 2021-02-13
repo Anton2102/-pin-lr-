@@ -5,14 +5,9 @@ const EntireDateThree = () => {
     const [dataNumber, setNumberInput] = useState(0);
     const [dataExp, setExpInput] = useState(0);
 
-    // function getUserExp(dataNumber, dataExp) {
-
-        // let start = 1;
-        // for (let i = 1; i <= dataExp; i++){
-        //     start *= dataNumber;
-        // }
-        // return start || "";
-    // }
+    function getUserExp(dataNumber, dataExp) {
+        return Math.exp(dataExp * Math.log(dataNumber));
+    }
     
     return (
         <>
@@ -35,7 +30,7 @@ const EntireDateThree = () => {
                 />
             </InputGroup>
             <h2 className="text-center">
-                {/* <Badge pill dark style={{marginTop: '10px'}}>{getUserExp(+dataNumber, +dataExp) | ""}</Badge> */}
+                <Badge pill dark style={{marginTop: '10px'}}>{getUserExp(+dataNumber, +dataExp)}</Badge>
             </h2>
         </>
     );
