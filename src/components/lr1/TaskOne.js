@@ -1,5 +1,7 @@
 import {Container, Row, Col} from 'bootstrap-4-react'
 import EntireDateOne from './EntireDateOne'
+import EntireDateTaskOne from './EntireDateTaskOne'
+import EntireDateTaskTwo from './EntireDateTaskTwo'
 
 const TaskOne = () => {
     return(
@@ -16,10 +18,29 @@ const TaskOne = () => {
                     <br />
                     <EntireDateOne />
                 </Col>
+            </Row>
+            <Row className="text-center">
                 <Col>
-                    Прописная логика
+                    <b>1) Положительная стпень числа n</b>
+                    <br />
+                    <EntireDateTaskOne />
+                </Col>
+                <Col>
+                    <b>2) Отрицательная стпень числа n</b>
+                    <br />
+                    <EntireDateTaskTwo />
                 </Col>
             </Row>
+            <Row className="text-center">
+                    <Col>
+                        <b>3) Экспанента стпень числа n</b>
+                        <br />
+                        <EntireDateTaskOne />
+                    </Col>
+                    <Col>
+                        ....
+                    </Col>
+                </Row>
         </Container>
     );
 }
