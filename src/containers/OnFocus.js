@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import { Card, Container, Row, Col, Button } from 'bootstrap-4-react'
 import {useFocus} from '@react-aria/interactions'
 
@@ -11,6 +11,13 @@ const OnFocus = () => {
         onFocusChange: (isFocused) =>
         setEvents((events) => [`${isFocused}`])
     });
+
+    let textInput = null;
+
+    function handleClick() {
+        textInput.focus();
+    }
+
     return (
 
         <Card style={{ width: '90%', margin: '0 auto', marginTop: '10px'}}>
@@ -28,7 +35,7 @@ const OnFocus = () => {
                         </Col>
                         <Col>
                             <Button secondary>4</Button>
-                            <Button secondary>5</Button>
+                            <Button secondary onClick={handleClick}>5</Button>
                         </Col>
                     </Row>
                     <br />
@@ -44,6 +51,9 @@ const OnFocus = () => {
                                 <li key={i}>{e}</li>
                             ))}
                             </ul>
+                        </Col>
+                        <Col>
+                            <input ref={(input) => { textInput = input; }} />
                         </Col>
                     </Row>
                 </Container>
