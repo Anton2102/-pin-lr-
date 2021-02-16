@@ -7,6 +7,7 @@ import {
 import { Navbar, Nav, Collapse, Dropdown } from 'bootstrap-4-react';
 import Home from './containers/Home'
 import FirstLab from './containers/FirstLab'
+import OnFocus from './containers/OnFocus'
 
 export default function App() {
   return (
@@ -20,9 +21,9 @@ export default function App() {
               <Nav.ItemLink href="#">2 лаб</Nav.ItemLink>
               <Nav.ItemLink href="#">3 лаб</Nav.ItemLink>
               <Nav.Item dropdown>
-                <Nav.Link dropdownToggle>Что-то ещё</Nav.Link>
+                <Nav.Link dropdownToggle>Возможности React</Nav.Link>
                 <Dropdown.Menu>
-                  <Dropdown.Item>Another</Dropdown.Item>
+                  <Dropdown.Item href="/onfocus">Работа с фокусом</Dropdown.Item>
                   <Dropdown.Divider />
                   <Dropdown.Item>Another</Dropdown.Item>
                 </Dropdown.Menu>
@@ -30,7 +31,13 @@ export default function App() {
             </Navbar.Nav>
           </Collapse>
         </Navbar>
+
+        {/* href */}
+
         <Switch>
+          <Route path="/onfocus">
+            <OnFocus />
+          </Route>
           <Route path="/firstLab">
             <FirstLab />
           </Route>
