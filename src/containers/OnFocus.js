@@ -1,7 +1,8 @@
-import React, {useRef} from 'react'
+import React, {useRef, useEffect} from 'react'
 import { Card, Container, Row, Col, Button } from 'bootstrap-4-react'
 import {useFocus} from '@react-aria/interactions'
 
+let statusStart = true; // тут у меня впроекте переменная из хранилища, это не глупости :D
 
 const OnFocus = () => {
     let [events, setEvents] = React.useState([]);
@@ -13,10 +14,20 @@ const OnFocus = () => {
     });
 
     let textInput = null;
+    let textInputText = null;
 
     function handleClick() {
         textInput.focus();
     }
+    function handleClickTest() {
+        textInputText.focus();
+    }
+
+    useEffect(() => {
+        if (statusStart){
+            textInputText.focus();
+        }
+    });
 
     return (
 
@@ -54,6 +65,17 @@ const OnFocus = () => {
                         </Col>
                         <Col>
                             <input ref={(input) => { textInput = input; }} />
+                        </Col>
+                    </Row>
+                </Container>
+                <hr />
+                <Container>
+                    <Row>
+                        <Col>
+                            <span onClick={handleClickTest}>
+                                123
+                            </span>
+                            <input ref={(input) => { textInputText = input; }}/>
                         </Col>
                     </Row>
                 </Container>
